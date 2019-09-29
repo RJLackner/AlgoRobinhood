@@ -53,6 +53,7 @@ Example of a log file
 2019-09-29 18:16:08,795 strategy.buy_stock_recommendation_rating Symbol UBER is trained and validated with accuracy 94.44%, forecasted to price up by 5.0% over the 5 days with predicted probability of 1.69%
 2019-09-29 18:16:08,797 strategy.buy_stock_recommendation_rating Symbol COF is using LSTM training model and doing forecast...
 2019-09-29 18:16:20,070 strategy.buy_stock_recommendation_rating Symbol COF is trained and validated with accuracy 87.5%, forecasted to price up by 5.0% over the 5 days with predicted probability of 5.6%
+
 2019-09-29 18:16:20,071 strategy.buy_stock_recommendation_rating Today's top 5 recommended stocks are: 
 2019-09-29 18:16:20,072 strategy.buy_stock_recommendation_rating Symbol GE: Rating 54.03% - Model Accuracy 81.94%
 2019-09-29 18:16:20,072 strategy.buy_stock_recommendation_rating Symbol NFLX: Rating 51.26% - Model Accuracy 90.28%
