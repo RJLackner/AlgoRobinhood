@@ -47,6 +47,7 @@ kivy/
 pyqt5_ui/
 dist/
 build/
+.ipynb_checkpoints/
 .idea/
 *.csv
 *.json
