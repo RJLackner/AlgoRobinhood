@@ -1,6 +1,10 @@
 # AlgoRobinhood
 
-Robinhood-Api for Algorithmic Trading with Machine Learning.
+Algorithmic Trading System with Machine Learning
+
+- An <strong>Algorithmic Trading System</strong> connecting to Robinhood to execute various algo trading strategies;
+- Stocks <strong>Recommendation System</strong> based on <strong>Machine Learning</strong> Models
+
 
 ## Getting Started
 
