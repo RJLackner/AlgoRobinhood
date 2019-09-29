@@ -12,7 +12,7 @@ These instructions will enable you to run an algo trading system on your local m
 
 ### Prerequisites
 
-You need a [robinhood](https://robinhood.com/) account with a two factor code setup using your phone number. At the point of executing AlgoRobinhood, you will put the user_id, password and the two-factor codes in terminal to login.
+You need a [robinhood](https://robinhood.com/) account with a two factor code setup using your phone number. At the point of executing AlgoRobinhood, you will put the account id, password and the two-factor codes in terminal to login.
 
 ```
 $ python AutoTrade.py
