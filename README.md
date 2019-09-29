@@ -88,8 +88,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ### Working in progress:
 
-- Update Github page with more information in README.md - <strong>in progress</strong>; <br>
-- Refactor code base, especially optimizing the data pipeline for modeling; <br>
+- Update Github page with more information in README.md - done on 20190929; <br>
+- Refactor code base, especially optimizing the data pipeline for modeling; - <strong>in progress</strong>; <br>
 - Extend machine leaning models by adding Xgboost and Random Forests to do forecast; <br>
 - Create Python package; <br>
 - Build Web-based UI; <br>
