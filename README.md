@@ -87,10 +87,10 @@ Example to be added
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-### Working in progress:
+## Working in progress:
 
-- Update Github page with more information in README.md - done on 20190929; <br>
-- Refactor code base, especially optimizing the data pipeline for modeling; - <strong>in progress</strong>; <br>
+- Build Github page with more information in README.md - done on 20190929; <br>
+- Optimize the data pipeline for modeling, and do codebase refactoring; - <strong>in progress</strong>; <br>
 - Extend machine leaning models by adding Xgboost and Random Forests to do forecast; <br>
 - Create Python package; <br>
 - Build Web-based UI; <br>
