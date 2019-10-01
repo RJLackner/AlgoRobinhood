@@ -18,7 +18,8 @@ def stock_rating(login, symbol, ml_model='LSTM', perf_window=5, label_pct_cutoff
     :return: dictionary of {symbol: [model_forecast_prob, model_accuracy]}
     """
     logger = logging.getLogger(__name__)
-    logger.info("Symbol {symbol} is using LSTM training model and doing forecast...".format(symbol=symbol))
+    logger.info("Symbol {symbol} is using {ml_model} training model and doing forecast...".format(symbol=symbol,
+                                                                                                  ml_model=ml_model))
 
     # fix random seed for reproducibility
     numpy.random.seed(seed)

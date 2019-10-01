@@ -22,6 +22,9 @@ Do you want to run recommendation code (y/n): y
 Enter your password: *****
 Please Enter SMS Code: ******
 2019-09-30 23:22:16,785 __main__ Successfully logged in account
+2019-09-30 23:22:16,785 __main__ Running stocks recommendation for today...
+2019-09-30 23:28:54,145 __main__ The code is outside execution period.
+2019-09-30 23:28:54,202 __main__ Successfully logged out account.
 ```
 
 ### Installing
@@ -34,9 +37,9 @@ Example to be added
 
 ## Running the tests
 
-Simply <em>git clone</em> this codebase and execute the below command. After sucessfully login in, a log file will be generated under <em>/log</em>, with detailed information like recommendations made from a tensorflow model predction, as well as buy/sell operations being executed if any.<br>
+Simply <em>git clone</em> this codebase and execute the below command. After successfully login in, a log file will be generated under <em>/log</em>, with detailed information like recommendations made from a tensorflow model predction, as well as buy/sell operations being executed if any.<br>
 
- <em>python <strong>AutoTrade.py</strong></em>
+ <em><strong>python AutoTrade.py</strong></em>
 
 ```
 Example of a log file
