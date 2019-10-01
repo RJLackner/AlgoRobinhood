@@ -35,7 +35,7 @@ A step by step series of examples will be added
 Example to be added
 ```
 
-## Running the tests
+## Running the AlgoRobinhood
 
 Simply <em>git clone</em> this codebase and execute the below command. After successfully login in, a log file will be generated under <em>/log</em>, with detailed information like recommendations made from a tensorflow model predction, as well as buy/sell operations being executed if any.<br>
 
