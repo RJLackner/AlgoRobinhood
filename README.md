@@ -75,7 +75,7 @@ Example to be added
 
 ## Built With
 
-* [Python 3.7](https://www.anaconda.com/distribution/) - Codebase development and execution
+* [Python 3.6](https://www.anaconda.com/distribution/) - Codebase development and execution
 * [Django](https://www.djangoproject.com/) - The web framework development
 
 ## Versioning
