@@ -1,19 +1,14 @@
 import robinhood_api.stocks as stocks
-import pandas as pd
-import numpy as np
-import pytz
-import datetime
-import dateutil.parser
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 import logging
 import numpy
-from keras.models import Sequential
-from keras.layers import Dense
 import robinhood_api.account as account
+from recommendation_system.data_pipeline.stock_price_data_pipeline import *
+from sklearn.pipeline import Pipeline
+from recommendation_system.estimation_models import tensorflow_lstm
+import pandas as pd
 
 
-def stock_rating(login, symbol, perf_window=5, label_pct_cutoff=0.05, historic_window=30, seed=7):
+def stock_rating(login, symbol, ml_model='LSTM', perf_window=5, label_pct_cutoff=0.05, historic_window=30, seed=7):
     """
     :param symbol: a string of symbol name
     :param perf_window: an integer of performance window that is used to define target label
@@ -28,88 +23,37 @@ def stock_rating(login, symbol, perf_window=5, label_pct_cutoff=0.05, historic_w
     # fix random seed for reproducibility
     numpy.random.seed(seed)
 
-    # get data
+    # get data from Robinhood API
     price = stocks.get_historicals(login, [symbol], span="year", interval="day", bounds='regular')
     price_data = pd.DataFrame.from_dict(price)
     price_data[['close_price', 'high_price', 'low_price', 'open_price', 'volume']] = price_data[
         ['close_price', 'high_price', 'low_price', 'open_price', 'volume']].apply(pd.to_numeric)
 
-    # get average prive from high v.s. low
-    price_data['avg_price'] = (price_data['high_price'] + price_data['low_price']) / 2
+    # data pipeline
+    data_pipeline = Pipeline([
+        ('DeriveVariable',
+         DeriveVariable(perf_window=perf_window, label_pct_cutoff=label_pct_cutoff, historic_window=historic_window)),
+        ('CreateTrainTestForecastData', CreateTrainTestForecastData(test_size=0.33, seed=seed))
+    ])
 
-    # convert timestamp
-    local_timezone = pytz.timezone("US/Eastern")
-    price_data['timestamp'] = price_data['begins_at'].apply(dateutil.parser.parse)
-    price_data['timestamp'] = price_data['timestamp'].dt.tz_convert(local_timezone).dt.strftime('%Y-%m-%d %H:%M')
+    X_train, X_test, y_train, y_test, X_forecast = data_pipeline.fit_transform(price_data)
 
-    # define target variable
-    price_data['rolling_max_avg_price'] = price_data['avg_price'].rolling(perf_window).max().shift(-perf_window)
-    price_data['target_label'] = np.where(
-        price_data['rolling_max_avg_price'] / price_data['avg_price'] - 1 > label_pct_cutoff, 1, 0)
-
-    # create lag variable for model data
-    model_data = price_data[['begins_at', 'timestamp', 'rolling_max_avg_price', 'target_label', 'avg_price']].copy()
-    for i in range(1, historic_window + 1):
-        exec("model_data['avg_price_lag%d'] = model_data['avg_price'].shift(%s)" % (i, i))
-
-    model_data = model_data.dropna()
-
-    # construct forecast data
-    forecast_data = price_data[['begins_at', 'timestamp', 'avg_price']].copy()
-    for i in range(1, historic_window + 1):
-        exec("forecast_data['avg_price_lag%d'] = forecast_data['avg_price'].shift(%s)" % (i, i))
-
-    forecast_data = forecast_data.tail(1)
-
-    # Specify the data
-    X = model_data.iloc[:, 4:]
-
-    # Specify the target labels and flatten the array
-    y = np.ravel(model_data.target_label)
-
-    # Split the data up in train and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=seed)
-
-    X_forecast = forecast_data.iloc[:, 2:]
-
-    # Define the scaler
-    scaler = StandardScaler().fit(X_train)
-
-    # Scale the train set
-    X_train = scaler.transform(X_train)
-
-    # Scale the test set
-    X_test = scaler.transform(X_test)
-
-    # Scale the forecast data
-    X_forecast = scaler.transform(X_forecast)
-
-    # Initialize the constructor
-    model = Sequential()
-
-    # Add an input layer
-    model.add(Dense(12, activation='relu', input_shape=(len(X.columns),)))
-
-    # Add one hidden layer
-    model.add(Dense(8, activation='relu'))
-
-    # Add an output layer
-    model.add(Dense(1, activation='sigmoid'))
-
-    # model fit
-    model.compile(loss='binary_crossentropy',
-                  optimizer='adam',
-                  metrics=['accuracy'])
-
-    model.fit(X_train, y_train, epochs=20, batch_size=1, verbose=0)
+    # model building
+    if ml_model == 'LSTM':
+        estimation_model = tensorflow_lstm.tensorflow_estimator(X_train, y_train)
+        model = estimation_model.fit()
+    else:
+        ##TODO will be adding more model estimators here
+        estimation_model = tensorflow_lstm.tensorflow_estimator(X_train, y_train)
+        model = estimation_model.fit()
 
     # model performance
-    score = model.evaluate(X_test, y_test, verbose=0)
+    score = model.model.evaluate(X_test, y_test, verbose=0)
     loss = score[0]
     accuracy = score[1]
 
     # forecast prediction
-    y_forecast_pred = model.predict(X_forecast)
+    y_forecast_pred = model.model.predict(X_forecast)
 
     logger.info(
         "Symbol {symbol} is trained and validated with accuracy {accuracy}%, forecasted to price up by {pct}% over the "

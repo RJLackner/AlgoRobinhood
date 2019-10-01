@@ -7,6 +7,7 @@ import time
 import random
 import hmac, base64, struct, hashlib
 from robinhood_api import exceptions as RH_exception
+import getpass as getpass
 
 class Robinhood:
     """Wrapper class for fetching/parsing Robinhood endpoints """
@@ -144,9 +145,7 @@ class Robinhood:
                 self.headers[
                     "X-ROBINHOOD-CHALLENGE-RESPONSE-ID"] = self.challenge_id  # has to add this to stay logged in
                 sms_challenge_endpoint = "https://api.robinhood.com/challenge/{}/respond/".format(self.challenge_id)
-                print("No 2FA Given")
-                print("SMS Code:")
-                self.sms_code = input()
+                self.sms_code = getpass.getpass("Please Enter SMS Code: ")
                 challenge_res = {"response": self.sms_code}
                 res2 = self.session.post(sms_challenge_endpoint, data=challenge_res, timeout=15)
                 res2.raise_for_status()

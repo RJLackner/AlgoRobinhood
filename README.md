@@ -18,11 +18,10 @@ You need a [robinhood](https://robinhood.com/) account with a two factor code se
 $ python AutoTrade.py
 
 Enter your account id: abc@somemail.com
+Do you want to run recommendation code (y/n): y
 Enter your password: *****
-No 2FA Given
-SMS Code:
-123456
-2019-09-29 18:09:45,131 __main__ Successfully logged in account
+Please Enter SMS Code: ******
+2019-09-30 23:22:16,785 __main__ Successfully logged in account
 ```
 
 ### Installing
@@ -42,27 +41,24 @@ Simply <em>git clone</em> this codebase and execute the below command. After suc
 ```
 Example of a log file
 
-2019-09-29 18:09:33,282 __main__ Auto trading start at 2019-09-29 18:09:33
-2019-09-29 18:09:33,283 __main__ The code is outside execution period.
-2019-09-29 18:09:45,131 __main__ Successfully logged in account
-2019-09-29 18:09:45,131 __main__ Running stocks recommendation for today...
-2019-09-29 18:09:51,004 strategy.buy_stock_recommendation_rating Symbol SNAP is using LSTM training model and doing forecast...
-2019-09-29 18:09:57,406 strategy.buy_stock_recommendation_rating Symbol SNAP is trained and validated with accuracy 61.11%, forecasted to price up by 5.0% over the 5 days with predicted probability of 39.66%
-2019-09-29 18:09:57,406 strategy.buy_stock_recommendation_rating Symbol AAPL is using LSTM training model and doing forecast...
+2019-09-30 23:22:04,500 __main__ Auto trading start at 2019-09-30 23:22:04
+2019-09-30 23:22:04,500 __main__ The code is outside execution period.
+2019-09-30 23:22:16,785 __main__ Successfully logged in account
+2019-09-30 23:22:16,785 __main__ Running stocks recommendation for today...
+2019-09-30 23:22:23,236 recommendation_system.recommendation Symbol SNAP is using LSTM training model and doing forecast...
+2019-09-30 23:22:27,877 recommendation_system.recommendation Symbol SNAP is trained and validated with accuracy 60.27%, forecasted to price up by 5.0% over the 5 days with predicted probability of 24.43%
 ...
-2019-09-29 18:16:08,795 strategy.buy_stock_recommendation_rating Symbol UBER is trained and validated with accuracy 94.44%, forecasted to price up by 5.0% over the 5 days with predicted probability of 1.69%
-2019-09-29 18:16:08,797 strategy.buy_stock_recommendation_rating Symbol COF is using LSTM training model and doing forecast...
-2019-09-29 18:16:20,070 strategy.buy_stock_recommendation_rating Symbol COF is trained and validated with accuracy 87.5%, forecasted to price up by 5.0% over the 5 days with predicted probability of 5.6%
+2019-09-30 23:28:40,817 recommendation_system.recommendation Symbol COF is using LSTM training model and doing forecast...
+2019-09-30 23:28:54,144 recommendation_system.recommendation Symbol COF is trained and validated with accuracy 90.41%, forecasted to price up by 5.0% over the 5 days with predicted probability of 4.17%
 
-2019-09-29 18:16:20,071 strategy.buy_stock_recommendation_rating Today's top 5 recommended stocks are: 
-2019-09-29 18:16:20,072 strategy.buy_stock_recommendation_rating Symbol GE: Rating 54.03% - Model Accuracy 81.94%
-2019-09-29 18:16:20,072 strategy.buy_stock_recommendation_rating Symbol NFLX: Rating 51.26% - Model Accuracy 90.28%
-2019-09-29 18:16:20,072 strategy.buy_stock_recommendation_rating Symbol AMZN: Rating 44.12% - Model Accuracy 90.28%
-2019-09-29 18:16:20,072 strategy.buy_stock_recommendation_rating Symbol DBX: Rating 36.58% - Model Accuracy 91.67%
-2019-09-29 18:16:20,072 strategy.buy_stock_recommendation_rating Symbol PVTL: Rating 33.95% - Model Accuracy 80.56%
-2019-09-29 18:16:20,072 __main__ The code is outside execution period.
-2019-09-29 18:16:20,131 __main__ Successfully logged out account.
-
+2019-09-30 23:28:54,145 recommendation_system.recommendation Today's top 5 recommended stocks are: 
+2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol GE: Rating 53.47% - Model Accuracy 87.67%
+2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol NFLX: Rating 49.46% - Model Accuracy 86.3%
+2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol FIT: Rating 38.27% - Model Accuracy 82.19%
+2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol AMZN: Rating 29.51% - Model Accuracy 91.78%
+2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol PVTL: Rating 27.16% - Model Accuracy 80.82%
+2019-09-30 23:28:54,145 __main__ The code is outside execution period.
+2019-09-30 23:28:54,202 __main__ Successfully logged out account.
 
 ```
 
@@ -90,8 +86,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Working in progress:
 
 - Build Github page with more information in README.md - done on 20190929; <br>
-- Optimize the data pipeline for modeling, and do codebase refactoring; - <strong>in progress</strong>; <br>
-- Extend machine leaning models by adding Xgboost and Random Forests to do forecast; <br>
+- Optimize the data pipeline for modeling, and do codebase refactoring; - done on 20190930<br>
+- add modeling class, which can be extented to RF and XGBoost; - done on 20190930<br>
+- Extend machine leaning models by adding Xgboost and Random Forests to do forecast; - <strong>in progress</strong><br>
 - Create Python package; <br>
 - Build Web-based UI; <br>
 

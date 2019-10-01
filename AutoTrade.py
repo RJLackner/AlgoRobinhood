@@ -1,14 +1,12 @@
 import time
 import robinhood_api.authentication as auth
-import robinhood_api.profiles as profiles
-import robinhood_api.orders as orders
 import robinhood_api.account as account
-import robinhood_api.stocks as stocks
 import datetime
 import logging
 import strategy.sell_stock_by_pct as sell_strategy
-import strategy.buy_stock_recommendation_rating as recommendation
+import recommendation_system.recommendation as recommendation
 import strategy.buy_stock_stop_loss_by_pct as buy_strategy
+import getpass as getpass
 
 
 def market_open_condition():
@@ -40,7 +38,7 @@ def code_execute_condition():
 def main():
     # take raw input including account id and password
     account_id = input("Enter your account id: ")
-    pwd = input("Enter your password: ")
+    pwd = getpass.getpass("Enter your password: ")
     recommendation_toggle = input("Do you want to run recommendation code (y/n): ")
 
     # logging
