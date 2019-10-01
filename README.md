@@ -2,17 +2,17 @@
 
 Algorithmic Trading System with Machine Learning
 
-- An <strong>Algorithmic Trading System</strong> connecting to Robinhood to execute various algo trading strategies;
+- An <strong>Algorithmic Trading System</strong> connecting to Robinhood to execute various algo trading strategies
 - Stocks <strong>Recommendation System</strong> based on <strong>Machine Learning</strong> Models
 
 
 ## Getting Started
 
-These instructions will enable you to run an algo trading system on your local machine.
+These instructions will enable you to run an algo trading system on your local machine
 
 ### Prerequisites
 
-You need a [robinhood](https://robinhood.com/) account with a two factor code setup using your phone number. At the point of executing AlgoRobinhood, you will put the account id, password and the two-factor codes in terminal to login.
+You need a [robinhood](https://robinhood.com/) account with a two factor code setup using your phone number. At the point of executing AlgoRobinhood, you will put the account id, password and the two-factor codes in terminal to login
 
 ```
 $ python AutoTrade.py
@@ -37,7 +37,7 @@ Example to be added
 
 ## Running the AlgoRobinhood
 
-Simply <em>git clone</em> this codebase and execute the below command. After successfully login in, a log file will be generated under <em>/log</em>, with detailed information like recommendations made from a tensorflow model predction, as well as buy/sell operations being executed if any.<br>
+Simply <em>git clone</em> this codebase and execute the below command. After successfully login in, a log file will be generated under <em>/log</em>, with detailed information like recommendations made from a tensorflow model predction, as well as buy/sell operations being executed if any<br>
 
  <em><strong>python AutoTrade.py</strong></em>
 
