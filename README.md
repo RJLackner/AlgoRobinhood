@@ -94,6 +94,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - Extend machine leaning models by adding Xgboost and Random Forests to do forecast; - <strong>in progress</strong><br>
 - Create Python package; <br>
 - Build Web-based UI; <br>
+- build do NLP on financial news, take it as additional features in ML models to enhance model performance; <Br>
 
 
 
