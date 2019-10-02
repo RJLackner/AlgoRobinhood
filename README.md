@@ -91,10 +91,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - Build Github page with more information in README.md - done on 20190929; <br>
 - Optimize the data pipeline for modeling, and do codebase refactoring; - done on 20190930<br>
 - add modeling class, which can be extented to RF and XGBoost; - done on 20190930<br>
-- Extend machine leaning models by adding Xgboost and Random Forests to do forecast; - <strong>in progress</strong><br>
+- Extend machine leaning models by adding Random Forest to do forecast; - done on 20191001<br>
+- Extend machine leaning models by adding XGboost to do forecast; - <strong>in progress</strong><br>
 - Create Python package; <br>
 - Build Web-based UI; <br>
-- build do NLP on financial news, take it as additional features in ML models to enhance model performance; <Br>
+- Build NLP on financial news, take it as additional features in ML models to enhance model performance; <br>
 
 
 

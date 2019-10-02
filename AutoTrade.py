@@ -39,7 +39,12 @@ def main():
     # take raw input including account id and password
     account_id = input("Enter your account id: ")
     pwd = getpass.getpass("Enter your password: ")
-    recommendation_toggle = input("Do you want to run recommendation code (y/n): ")
+    recommendation_toggle = input("Do you want to run recommendation model (y/n): ")
+
+    if recommendation_toggle.upper() == 'Y':
+        model_selection = input("What recommendation model you want to use (LSTM/RF): ")
+    else:
+        model_selection = None
 
     # logging
     logger = logging.getLogger(__name__)
@@ -79,7 +84,8 @@ def main():
     try:
         if recommendation_toggle.upper() == 'Y':
             logger.info("Running stocks recommendation for today...")
-            _ = recommendation.buy_stock_recommend_rating(login=my_trader, top=5, perf_threshold=0.8)
+            _ = recommendation.buy_stock_recommend_rating(login=my_trader, ml_model=model_selection, top=5,
+                                                          perf_threshold=0.8)
         else:
             logger.info("Skip running stocks recommendation for today as specified.")
     except:

@@ -2,7 +2,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 
 
-class tensorflow_estimator():
+class TensorFlowEstimator():
 
     def __init__(self, X_train, y_train):
         self.X_train = X_train
