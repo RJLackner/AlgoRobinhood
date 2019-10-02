@@ -19,6 +19,7 @@ $ python AutoTrade.py
 
 Enter your account id: abc@somemail.com
 Do you want to run recommendation code (y/n): y
+What recommendation model you want to use (LSTM/RF): LSTM
 Enter your password: *****
 Please Enter SMS Code: ******
 2019-09-30 23:22:16,785 __main__ Successfully logged in account
