@@ -24,6 +24,7 @@ Enter your password: *****
 Please Enter SMS Code: ******
 2019-09-30 23:22:16,785 __main__ Successfully logged in account
 2019-09-30 23:22:16,785 __main__ Running stocks recommendation for today...
+...
 2019-09-30 23:28:54,145 __main__ The code is outside execution period.
 2019-09-30 23:28:54,202 __main__ Successfully logged out account.
 ```
@@ -48,21 +49,22 @@ Example of a log file
 2019-09-30 23:22:04,500 __main__ Auto trading start at 2019-09-30 23:22:04
 2019-09-30 23:22:04,500 __main__ The code is outside execution period.
 2019-09-30 23:22:16,785 __main__ Successfully logged in account
-2019-09-30 23:22:16,785 __main__ Running stocks recommendation for today...
-2019-09-30 23:22:23,236 recommendation_system.recommendation Symbol SNAP is using LSTM training model and doing forecast...
-2019-09-30 23:22:27,877 recommendation_system.recommendation Symbol SNAP is trained and validated with accuracy 60.27%, forecasted to price up by 5.0% over the 5 days with predicted probability of 24.43%
+2019-10-02 22:35:31,914 __main__ Running stocks recommendation for today...
+2019-10-02 22:35:38,262 recommendation_system.recommendation Using Random Forest - RF to train and validate each stock price...
+2019-10-02 22:35:39,102 recommendation_system.recommendation Symbol SNAP model accuracy is 79.73%, with prob of 7.5% to go up by 5.0% over the next 5 days 
+2019-10-02 22:35:39,412 recommendation_system.recommendation Symbol AAPL model accuracy is 89.19%, with prob of 5.99% to go up by 5.0% over the next 5 days 
 ...
-2019-09-30 23:28:40,817 recommendation_system.recommendation Symbol COF is using LSTM training model and doing forecast...
-2019-09-30 23:28:54,144 recommendation_system.recommendation Symbol COF is trained and validated with accuracy 90.41%, forecasted to price up by 5.0% over the 5 days with predicted probability of 4.17%
+2019-10-02 22:35:51,735 recommendation_system.recommendation Symbol UBER model accuracy is 93.24%, with prob of 16.7% to go up by 5.0% over the next 5 days 
+2019-10-02 22:35:51,977 recommendation_system.recommendation Symbol COF model accuracy is 91.89%, with prob of 3.0% to go up by 5.0% over the next 5 days 
 
-2019-09-30 23:28:54,145 recommendation_system.recommendation Today's top 5 recommended stocks are: 
-2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol GE: Rating 53.47% - Model Accuracy 87.67%
-2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol NFLX: Rating 49.46% - Model Accuracy 86.3%
-2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol FIT: Rating 38.27% - Model Accuracy 82.19%
-2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol AMZN: Rating 29.51% - Model Accuracy 91.78%
-2019-09-30 23:28:54,145 recommendation_system.recommendation Symbol PVTL: Rating 27.16% - Model Accuracy 80.82%
-2019-09-30 23:28:54,145 __main__ The code is outside execution period.
-2019-09-30 23:28:54,202 __main__ Successfully logged out account.
+2019-10-02 22:35:51,977 recommendation_system.recommendation Today's top 5 recommended stocks are: 
+2019-10-02 22:35:51,977 recommendation_system.recommendation Symbol FB: Rating 24.13% - Model Accuracy 94.59%
+2019-10-02 22:35:51,977 recommendation_system.recommendation Symbol UBER: Rating 16.7% - Model Accuracy 93.24%
+2019-10-02 22:35:51,977 recommendation_system.recommendation Symbol NFLX: Rating 15.93% - Model Accuracy 94.59%
+2019-10-02 22:35:51,978 recommendation_system.recommendation Symbol SNE: Rating 13.67% - Model Accuracy 86.49%
+2019-10-02 22:35:51,978 recommendation_system.recommendation Symbol TWTR: Rating 12.24% - Model Accuracy 82.43%
+2019-10-02 22:35:51,978 __main__ The code is outside execution period.
+2019-10-02 22:35:52,025 __main__ Successfully logged out account.
 
 ```
 

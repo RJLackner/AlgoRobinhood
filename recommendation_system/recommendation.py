@@ -20,8 +20,6 @@ def stock_rating(login, symbol, ml_model='LSTM', perf_window=5, label_pct_cutoff
     :return: dictionary of {symbol: [model_forecast_prob, model_accuracy]}
     """
     logger = logging.getLogger(__name__)
-    logger.info("Symbol {symbol} is using {ml_model} training model and doing forecast...".format(symbol=symbol,
-                                                                                                  ml_model=ml_model))
 
     # fix random seed for reproducibility
     numpy.random.seed(seed)
@@ -77,8 +75,8 @@ def stock_rating(login, symbol, ml_model='LSTM', perf_window=5, label_pct_cutoff
         y_forecast_pred = model.model.predict(X_forecast)[0][0]
 
     logger.info(
-        "Symbol {symbol} is trained and validated with accuracy {accuracy}%, forecasted to price up by {pct}% over the "
-        "{days} days with predicted probability of {forecast_prob}%".format(
+        "Symbol {symbol} model accuracy is {accuracy}%, with prob of {forecast_prob}%"
+        " to go up by {pct}% over the next {days} days ".format(
             symbol=symbol, accuracy=round(accuracy * 100, 2), pct=round(label_pct_cutoff * 100, 2), days=perf_window,
             forecast_prob=round(y_forecast_pred * 100, 2)))
 
@@ -99,6 +97,8 @@ def buy_stock_recommend_rating(login, ml_model='LSTM', top=5, perf_threshold=0.8
 
     watchlist_symbols = account.get_symbols_from_watchlist(login=login)
 
+    ml_model_dict = {'LSTM': 'Long Short Term Memory networks - LSTM', 'RF': 'Random Forest - RF'}
+    logger.info("Using {ml_model} to train and validate each stock price...".format(ml_model=ml_model_dict[ml_model]))
     rating = {}
     for symbol in watchlist_symbols:
         rating.update(stock_rating(login=login, symbol=symbol, ml_model=ml_model))
