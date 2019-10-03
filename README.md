@@ -31,10 +31,16 @@ Please Enter SMS Code: ******
 
 ### Installing
 
-A step by step series of examples will be added
+Make sure you have below python packages installed:
+
+- tensorflow
+- xgboost
+
+
+Git clone the AlgoRobinhood codebase and you should be ready to go:
 
 ```
-Example to be added
+git clone https://github.com/ChrisZheng1985/AlgoRobinhood.git
 ```
 
 ## Running the AlgoRobinhood
