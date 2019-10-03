@@ -46,9 +46,9 @@ Simply <em>git clone</em> this codebase and execute the below command. After suc
 ```
 Example of a log file
 
-2019-09-30 23:22:04,500 __main__ Auto trading start at 2019-09-30 23:22:04
-2019-09-30 23:22:04,500 __main__ The code is outside execution period.
-2019-09-30 23:22:16,785 __main__ Successfully logged in account
+2019-10-02 22:35:17,385 __main__ Auto trading start at 2019-10-02 22:35:17
+2019-10-02 22:35:17,385 __main__ The code is outside execution period.
+2019-10-02 22:35:31,913 __main__ Successfully logged in account
 2019-10-02 22:35:31,914 __main__ Running stocks recommendation for today...
 2019-10-02 22:35:38,262 recommendation_system.recommendation Using Random Forest - RF to train and validate each stock price...
 2019-10-02 22:35:39,102 recommendation_system.recommendation Symbol SNAP model accuracy is 79.73%, with prob of 7.5% to go up by 5.0% over the next 5 days 
